@@ -1,0 +1,403 @@
+@import 'variables';
+@import 'pricelist-table';
+
+// -- common styles
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.bg-fill {
+    background-color: rgba(183, 187, 211, 0.3);
+}
+
+.button {
+    font-family: $Roboto-Condensed;
+    text-transform: uppercase;
+    padding: 10px 20px 11px;
+    transition: box-shadow .28s cubic-bezier(.4,0,.2,1),
+                background-color .2s linear;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    line-height: 1.42857143;
+    border-radius: 4px;
+
+    &-blue {
+        background: $color-blue;
+        color: $color-white;
+    }
+    
+    &:hover {
+        background-color: $color-gray;
+    }
+}
+
+section.wavebordered {
+    position: relative;
+}
+
+section.wavebordered:before,
+section.wavebordered:after {
+    content: "";
+        display: block;
+        width: 100%;
+        height: 14px;
+        position: absolute;
+        left: 0;
+        background: url("../img/wave.svg") top left repeat-x;
+}
+// common styles --//
+
+// --Section header
+.header {
+    background: linear-gradient( rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0.1) ), 
+                url('../img/header-bg.jpg') no-repeat center;
+    background-size: cover;
+    min-height: 600px;
+    position: relative;
+
+    &-maininfo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+
+        &__text {
+            flex-grow: 1;
+            padding-left: 40px;
+            
+            &-intro {                
+                font-family: $Roboto-Condensed; 
+                margin-bottom: 10px;
+            }
+
+            &-phone {
+                display: flex;
+                align-items: flex-end;
+
+                & .href-tel {
+                    text-decoration: none;
+                    font-family: $Roboto-Condensed;
+                    font-size: 1.1em;
+                    font-weight: bold;
+                    color: $color-orange;
+                    transition: color .1s linear;
+
+                    &:hover {
+                        color: red;
+                    }
+
+                    &+.href-tel {
+                        margin-left: 20px;
+                    }
+
+                    & .icon {
+                        height: 20px;
+                        width: 20px;
+                        display: inline-block;
+                        background-size: cover;
+                        border-radius: 1px;
+                    }
+
+                    & .velcom {
+                        background-image: url('../img/velcom.png');
+                    }
+
+                    & .mts {
+                        background-image: url('../img/mts.png');
+                    }
+                }
+            }
+        }
+    }
+
+    &-description {
+        width: 40%;
+        min-height: 200px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $color-gray-transparent;
+        text-align: center;
+        padding: 25px;     
+
+        &__primary { 
+            font-family: $Roboto-Condensed; 
+            font-size: 2.5em;          
+            margin-bottom: 20px;
+
+            & span {
+                color: $color-blue-dark;
+            }
+        }
+
+        &__secondary {
+            font-family: $Roboto-Condensed;
+            font-size: 1.5em;
+            line-height: 1.5;
+        }
+
+    }
+}
+// Section header --//
+
+// --Section examples
+.examples {
+    padding: 20px 0;
+
+    &-text {
+        font-family: $PT-Sans;
+        text-indent: 1.5em;
+    }
+
+    &-heading {
+        text-align: center;
+        font-family: $PT-Sans;
+        font-size: 2.5em;
+        color: $color-gray;
+        padding: 40px 0;
+    }
+
+    &-list {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        margin-bottom: 20px;
+        text-align: center;
+        width: 160px;   
+        
+        &-image {
+            width: 150px;
+            height: 100px;
+            margin-bottom: 10px;
+
+            & img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &-title {
+            font-family: $Roboto;
+            max-width: 200px;
+        }
+    }
+
+    &:before {
+        top: -7px;
+        background-position: top;
+        z-index: 20;
+    }
+    &:after {        
+        bottom: -7px;
+        background-position: bottom;
+        z-index: 21;
+    }
+}
+// Section examples --//
+
+
+// --Section advantages
+.advantages {
+    
+    &-title {
+        text-align: center;
+        font-family: $PT-Sans;
+        font-size: 3em;
+        font-weight: 700;
+        color: $color-gray;
+        padding: 40px 0;
+    }
+
+    &-list {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        &__item {
+            width: 47.5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+
+            &-icon {
+                font-size: 3em;
+                color: $color-gray;
+                margin-right: 20px;
+            }
+
+            &-text {
+                font-family: $Roboto;
+
+                & .heading {
+                    font-size: 1.5em;
+                    margin-bottom: 5px;
+                }
+
+                & .description {
+                    line-height: 1.5;
+                }
+            }
+        }
+    }
+
+    &:before {
+        top: -7px;
+        background-position: top;
+        z-index: 20;
+    }
+    &:after {        
+        bottom: -7px;
+        background-position: bottom;
+        z-index: 21;
+    }
+}
+// Section advantages --//
+
+// --Section diagnostic
+.diagnostic {
+    padding-bottom: 40px;
+
+    &-heading {
+        text-align: center;
+        font-family: $PT-Sans;
+        font-size: 3em;
+        font-weight: 700;
+        padding: 40px 0;
+    }
+
+    &-video {
+        text-align: center;
+
+        & iframe {
+            width: 700px;
+            height: 500px;
+        }
+    }
+
+    &-listheading {
+        text-align: center;
+        font-family: $PT-Sans;
+        font-size: 1.5em;
+        font-weight: 700;
+        padding: 25px 0;
+    }
+
+    &-problems {
+        &__item {
+
+            &-title {
+                font-family: $Roboto;
+                font-size: 1em;
+                margin: 15px 10px 10px 10px;
+                display: flex;
+                justify-content: space-between;
+                cursor: pointer;
+
+                & .descr-hidden {
+                    display: none;
+                }
+            }
+
+            &:after {
+                content: "";
+                display: block;
+                border: 1px solid $color-gray;
+            }
+
+            &-description {
+                display: none;
+                transition: display 2s linear;
+            }
+
+        }
+    }
+}
+// Section diagnostic --//
+
+
+// --Section prices
+.prices {
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.9)), 
+                url('../img/prices-bg.jpg') no-repeat center;
+    background-size: cover;
+    min-height: 600px;
+
+    &-title {
+        text-align: center;
+        font-family: $PT-Sans;
+        font-size: 3em;
+        font-weight: 700;
+        padding: 40px 0;
+        color: $color-blue-dark;
+    }
+
+    & .pricelist-tabs-titles ul {
+        padding: 0;
+        margin-bottom: 30px;
+        text-align: center;
+
+        & li {
+            display: inline-block;
+            padding: 5px 10px;
+            background: #ccc;
+            border-radius: 3px;
+            margin: 5px;
+            padding: 10px 15px;;
+            cursor: pointer;
+            transition: color .25s, background-color .25s;
+            font-family: $PT-Sans;
+            font-size: 1.5em;
+
+            &:hover {
+                background: $color-blue;
+                color: #fff;
+            }
+
+            &.active {
+                background: $color-blue-dark;
+                color: #fff;
+            }
+        }
+    }
+
+    & .pricelist-tabs-content {
+        position: relative;
+
+        & .pricelist-tab {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            display: none;
+
+            & table {
+                margin: 40px auto;
+            }
+
+            & .text-center strong{
+                font-family: $PT-Sans;
+                font-size: 1.5em;
+            }
+        }
+    }
+}
+// Section prices --//

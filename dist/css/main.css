@@ -1,0 +1,362 @@
+.simple-little-table {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #666;
+  font-size: 14px;
+  text-shadow: 1px 1px 0px #fff;
+  background: #eaebec;
+  margin: 20px;
+  border: #ccc 1px solid;
+  border-collapse: separate;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 2px;
+  -moz-box-shadow: 0 1px 2px #d1d1d1;
+  -webkit-box-shadow: 0 1px 2px #d1d1d1;
+  box-shadow: 0 1px 2px #d1d1d1; }
+
+.simple-little-table th {
+  font-weight: bold;
+  padding: 21px 25px 22px 25px;
+  border-top: 1px solid #fafafa;
+  border-bottom: 1px solid #e0e0e0;
+  background: #ededed;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ebebeb));
+  background: -moz-linear-gradient(top, #ededed, #ebebeb); }
+
+.simple-little-table th:first-child {
+  text-align: left;
+  padding-left: 20px; }
+
+.simple-little-table tr:first-child th:first-child {
+  -moz-border-radius-topleft: 3px;
+  -webkit-border-top-left-radius: 3px;
+  border-top-left-radius: 3px; }
+
+.simple-little-table tr:first-child th:last-child {
+  -moz-border-radius-topright: 3px;
+  -webkit-border-top-right-radius: 3px;
+  border-top-right-radius: 3px; }
+
+.simple-little-table tr {
+  text-align: center;
+  padding-left: 20px; }
+
+.simple-little-table tr td:first-child {
+  text-align: left;
+  padding-left: 20px;
+  border-left: 0; }
+
+.simple-little-table tr td {
+  padding: 18px;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  border-left: 1px solid #e0e0e0;
+  background: #fafafa;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
+  background: -moz-linear-gradient(top, #fbfbfb, #fafafa); }
+
+.simple-little-table tr:nth-child(even) td {
+  background: #f6f6f6;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f6f6f6));
+  background: -moz-linear-gradient(top, #f8f8f8, #f6f6f6); }
+
+.simple-little-table tr:last-child td {
+  border-bottom: 0; }
+
+.simple-little-table tr:last-child td:first-child {
+  -moz-border-radius-bottomleft: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  border-bottom-left-radius: 3px; }
+
+.simple-little-table tr:last-child td:last-child {
+  -moz-border-radius-bottomright: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  border-bottom-right-radius: 3px; }
+
+.simple-little-table tr:hover td {
+  background: #f2f2f2;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
+  background: -moz-linear-gradient(top, #f2f2f2, #f0f0f0); }
+
+.simple-little-table a:link {
+  color: #666;
+  font-weight: bold;
+  text-decoration: none; }
+
+.simple-little-table a:visited {
+  color: #999999;
+  font-weight: bold;
+  text-decoration: none; }
+
+.simple-little-table a:active,
+.simple-little-table a:hover {
+  color: #bd5a35;
+  text-decoration: underline; }
+
+* {
+  box-sizing: border-box; }
+
+.container {
+  width: 80%;
+  margin: 0 auto; }
+
+.bg-fill {
+  background-color: rgba(183, 187, 211, 0.3); }
+
+.button {
+  font-family: "Roboto Condensed", sans-serif;
+  text-transform: uppercase;
+  padding: 10px 20px 11px;
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s linear;
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  line-height: 1.42857143;
+  border-radius: 4px; }
+  .button-blue {
+    background: #00a0e3;
+    color: white; }
+  .button:hover {
+    background-color: #b7bbd3; }
+
+section.wavebordered {
+  position: relative; }
+
+section.wavebordered:before,
+section.wavebordered:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 14px;
+  position: absolute;
+  left: 0;
+  background: url("../img/wave.svg") top left repeat-x; }
+
+.header {
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0.1)), url("../img/header-bg.jpg") no-repeat center;
+  background-size: cover;
+  min-height: 600px;
+  position: relative; }
+  .header-maininfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; }
+    .header-maininfo__text {
+      flex-grow: 1;
+      padding-left: 40px; }
+      .header-maininfo__text-intro {
+        font-family: "Roboto Condensed", sans-serif;
+        margin-bottom: 10px; }
+      .header-maininfo__text-phone {
+        display: flex;
+        align-items: flex-end; }
+        .header-maininfo__text-phone .href-tel {
+          text-decoration: none;
+          font-family: "Roboto Condensed", sans-serif;
+          font-size: 1.1em;
+          font-weight: bold;
+          color: #f07d13;
+          transition: color .1s linear; }
+          .header-maininfo__text-phone .href-tel:hover {
+            color: red; }
+          .header-maininfo__text-phone .href-tel + .href-tel {
+            margin-left: 20px; }
+          .header-maininfo__text-phone .href-tel .icon {
+            height: 20px;
+            width: 20px;
+            display: inline-block;
+            background-size: cover;
+            border-radius: 1px; }
+          .header-maininfo__text-phone .href-tel .velcom {
+            background-image: url("../img/velcom.png"); }
+          .header-maininfo__text-phone .href-tel .mts {
+            background-image: url("../img/mts.png"); }
+  .header-description {
+    width: 40%;
+    min-height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(183, 187, 211, 0.5);
+    text-align: center;
+    padding: 25px; }
+    .header-description__primary {
+      font-family: "Roboto Condensed", sans-serif;
+      font-size: 2.5em;
+      margin-bottom: 20px; }
+      .header-description__primary span {
+        color: #0085bd; }
+    .header-description__secondary {
+      font-family: "Roboto Condensed", sans-serif;
+      font-size: 1.5em;
+      line-height: 1.5; }
+
+.examples {
+  padding: 20px 0; }
+  .examples-text {
+    font-family: "PT Sans", sans-serif;
+    text-indent: 1.5em; }
+  .examples-heading {
+    text-align: center;
+    font-family: "PT Sans", sans-serif;
+    font-size: 2.5em;
+    color: #b7bbd3;
+    padding: 40px 0; }
+  .examples-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; }
+  .examples__item {
+    margin-bottom: 20px;
+    text-align: center;
+    width: 160px; }
+    .examples__item-image {
+      width: 150px;
+      height: 100px;
+      margin-bottom: 10px; }
+      .examples__item-image img {
+        width: 100%;
+        height: 100%; }
+    .examples__item-title {
+      font-family: "Roboto", sans-serif;
+      max-width: 200px; }
+  .examples:before {
+    top: -7px;
+    background-position: top;
+    z-index: 20; }
+  .examples:after {
+    bottom: -7px;
+    background-position: bottom;
+    z-index: 21; }
+
+.advantages-title {
+  text-align: center;
+  font-family: "PT Sans", sans-serif;
+  font-size: 3em;
+  font-weight: 700;
+  color: #b7bbd3;
+  padding: 40px 0; }
+
+.advantages-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; }
+  .advantages-list__item {
+    width: 47.5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px; }
+    .advantages-list__item-icon {
+      font-size: 3em;
+      color: #b7bbd3;
+      margin-right: 20px; }
+    .advantages-list__item-text {
+      font-family: "Roboto", sans-serif; }
+      .advantages-list__item-text .heading {
+        font-size: 1.5em;
+        margin-bottom: 5px; }
+      .advantages-list__item-text .description {
+        line-height: 1.5; }
+
+.advantages:before {
+  top: -7px;
+  background-position: top;
+  z-index: 20; }
+
+.advantages:after {
+  bottom: -7px;
+  background-position: bottom;
+  z-index: 21; }
+
+.diagnostic {
+  padding-bottom: 40px; }
+  .diagnostic-heading {
+    text-align: center;
+    font-family: "PT Sans", sans-serif;
+    font-size: 3em;
+    font-weight: 700;
+    padding: 40px 0; }
+  .diagnostic-video {
+    text-align: center; }
+    .diagnostic-video iframe {
+      width: 700px;
+      height: 500px; }
+  .diagnostic-listheading {
+    text-align: center;
+    font-family: "PT Sans", sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    padding: 25px 0; }
+  .diagnostic-problems__item-title {
+    font-family: "Roboto", sans-serif;
+    font-size: 1em;
+    margin: 15px 10px 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer; }
+    .diagnostic-problems__item-title .descr-hidden {
+      display: none; }
+  .diagnostic-problems__item:after {
+    content: "";
+    display: block;
+    border: 1px solid #b7bbd3; }
+  .diagnostic-problems__item-description {
+    display: none;
+    transition: display 2s linear; }
+
+.prices {
+  padding: 20px;
+  text-align: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.9)), url("../img/prices-bg.jpg") no-repeat center;
+  background-size: cover;
+  min-height: 600px; }
+  .prices-title {
+    text-align: center;
+    font-family: "PT Sans", sans-serif;
+    font-size: 3em;
+    font-weight: 700;
+    padding: 40px 0;
+    color: #0085bd; }
+  .prices .pricelist-tabs-titles ul {
+    padding: 0;
+    margin-bottom: 30px;
+    text-align: center; }
+    .prices .pricelist-tabs-titles ul li {
+      display: inline-block;
+      padding: 5px 10px;
+      background: #ccc;
+      border-radius: 3px;
+      margin: 5px;
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: color .25s, background-color .25s;
+      font-family: "PT Sans", sans-serif;
+      font-size: 1.5em; }
+      .prices .pricelist-tabs-titles ul li:hover {
+        background: #00a0e3;
+        color: #fff; }
+      .prices .pricelist-tabs-titles ul li.active {
+        background: #0085bd;
+        color: #fff; }
+  .prices .pricelist-tabs-content {
+    position: relative; }
+    .prices .pricelist-tabs-content .pricelist-tab {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      display: none; }
+      .prices .pricelist-tabs-content .pricelist-tab table {
+        margin: 40px auto; }
+      .prices .pricelist-tabs-content .pricelist-tab .text-center strong {
+        font-family: "PT Sans", sans-serif;
+        font-size: 1.5em; }

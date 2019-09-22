@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ru" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ремонт швейных машин в Минске</title>    
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap&subset=cyrillic" rel="stylesheet">
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-locale_ru-by.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/pricelist.js"></script>
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <!-- //-- Section header -->
+    <section class="header">
+        <div class="container">
+            <div class="header-maininfo">
+                <img src="img/logo.png" alt="logo" class="header-maininfo-logo">
+                <div class="header-maininfo__text">
+                    <p class="header-maininfo__text-intro">Сертифицированный сервисный центр в городе Минске.</p>
+                    <p class="header-maininfo__text-phone">
+                        <a class="href-tel" href="tel:+375(17)242-01-88">
+                            <i class="fas fa-phone-alt"></i>
+                            +375 (17) 242-01-88
+                        </a>
+                        <a class="href-tel" href="tel:+375(29)983-50-70">
+                            <span class="icon velcom"></span>
+                            +375 (29) 983-50-70
+                        </a>
+                        <a class="href-tel" href="tel:+375(29)575-50-50">
+                            <span class="icon mts"></span>
+                            +375 (29) 575-50-50
+                        </a>
+                    </p>
+                </div>
+                <p><button class="header-maininfo-button button button-blue">Заказать звонок</button></p>
+            </div>
+
+            <div class="header-description">
+                <p class="header-description__primary">Профессиональный ремонт и обслуживание <span>всех видов</span> швейной техники</p>
+                <p class="header-description__secondary">гарантия качества</p>
+                <p class="header-description__secondary">короткие сроки</p>
+            </div>
+        </div>
+    </section>
+    <!-- Section header --// -->
+
+    <!-- //-- Section examples -->
+    <section class="examples wavebordered" ng-controller="examplesCtrl">
+        <div class="container">
+            <p class="examples-text">Рано или поздно вашему агрегату может понадобиться восстановление, обращайтесь в проверенную временем мастерскую. Наши мастера осуществляют ремонт швейных машин и их техническое обслуживание в Минске, поскольку своевременная замена изношенных элементов – залог качественной работы и бесперебойного функционирования техники. Мастера проходят постоянное обучение и плановую аттестацию на фирмах, занимающих лидирующие позиции среди производителей швейного оборудования Janome, Elna, Brother, Bernina.</p>
+            <h2 class="examples-heading">Производим ремонт следующих типов швейной техники</h2>
+            <div class="examples-list">
+                <div class="examples__item" ng-repeat="example in examplesList">
+                    <div class="examples__item-image"><img src="img/{{example.img}}.jpg" alt=""></div>
+                    <div class="examples__item-title">{{example.name}}</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section examples --// -->
+
+        <!-- //-- Section prices -->
+        <section class="prices">
+                <div class="container">
+                    <h2 class="prices-title">Цены на ремонт и обслуживание оборудования</h2>
+                    <div class="prices-pricelist" ng-controller="pricelistCtrl">
+        
+                        <div data-title="Швейное оборудование">
+                            <p class="text-center"><strong>Актуальные цены на выполнение работ по швейному оборудованию</strong></p>
+                            <table class="simple-little-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Вид работы</th>
+                                            <th>Стоимость работы</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="position in priceList.shveinoye">
+                                            <td>{{position.type}}</td>
+                                            <td>{{position.price | currency}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                        </div>   
+        
+                        <div data-title="Вязальное оборудование">
+                            <p class="text-center"><strong>Актуальные цены на выполнение работ по вязальному оборудованию</strong></p>
+                            <table class="simple-little-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Вид работы</th>
+                                            <th>Стоимость работы</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="position in priceList.viazalnoye">
+                                                <td>{{position.type}}</td>
+                                                <td>{{position.price | currency}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                        </div>
+        
+                        <div data-title="Парогладильное оборудование">
+                            <p class="text-center"><strong>Актуальные цены на выполнение работ по парогладильному оборудованию</strong></p>
+                            <table class="simple-little-table">
+                                <thead>
+                                    <tr>
+                                        <th>Вид работы</th>
+                                        <th>Стоимость работы</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="position in priceList.parogladilnoye">
+                                            <td>{{position.type}}</td>
+                                            <td>{{position.price | currency}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>     
+                    </div>
+                </div>
+            </section>
+            <!-- Section prices --// -->
+
+    <!-- //-- Section advantages -->
+    <section class="advantages wavebordered">
+        <div class="container">
+            <h2 class="advantages-title">Наши преимущества</h2>
+            <div class="advantages-list">
+                <div class="advantages-list__item">
+                    <div class="advantages-list__item-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="advantages-list__item-text">
+                        <p class="heading">Высококвалифицированные мастера</p>
+                        <p class="description">Наши мастера регулярно проходят обучение по ремонту швейной техники мировых брендов Janome, Elna, Brother, Bernina и др. Поскольку постоянно внедряются новые технологии, мы стараемся «шагать в ногу со временем».</p>
+                    </div>
+                </div>
+                <div class="advantages-list__item">
+                    <div class="advantages-list__item-icon">
+                        <i class="fas fa-screwdriver"></i>
+                    </div>
+                    <div class="advantages-list__item-text">
+                        <p class="heading">Максимально точная диагностика</p>
+                        <p class="description">Во время осмотра оборудования мы стараемся максимально точно, насколько это возможно, оценить проблему, а также просчитать дальнейшую стоимость восстановления.</p>
+                    </div>
+                </div>
+                <div class="advantages-list__item">
+                    <div class="advantages-list__item-icon">
+                        <i class="fas fa-hourglass-half"></i>
+                    </div>
+                    <div class="advantages-list__item-text">
+                        <p class="heading">Большой опыт работы</p>
+                        <p class="description">Мастера, производящие работы в нашем сервисном ценрте, начали свою практику на швейных фабриках и ателье задолго до основания нашей организации. Ввиду этого суммарный опыт специалистов составляет порядка 30 лет.</p>
+                    </div>
+                </div>                
+                <div class="advantages-list__item">
+                    <div class="advantages-list__item-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div class="advantages-list__item-text">
+                        <p class="heading">Широкий ассортимент запасных частей</p>
+                        <p class="description">Являясь не только сервисным центром, но и <a href="https://lapka.by/" title="Ссылка на магазин">магазином швейной техники и аксессуаров</a>, мы имеем в наличии огромный ассортимент запасных частей к любому оборудованию по адекватным ценам.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section advantages --// -->
+
+    <!-- //-- Section diagnostic -->
+    <section class="diagnostic bg-fill">
+        <div class="container">
+            <h2 class="diagnostic-heading">Наиболее частые проблемы</h2>
+            <div class="diagnostic-video">
+                <iframe src="http://www.youtube.com/embed/L_8b4hDrsLo" frameborder="0" ></iframe>
+            </div>
+            <h3 class="diagnostic-listheading">Проблемы и причины их возникновения</h3>
+            <div class="diagnostic-problems">                
+                <div class="diagnostic-problems__item">
+                    <div class="diagnostic-problems__item-title">
+                        <p>Обрыв нити</p>
+                        <i class="fas fa-chevron-circle-down descr-visible"></i>
+                        <i class="fas fa-chevron-circle-up descr-hidden"></i>
+                    </div>
+                    <div class="diagnostic-problems__item-description" style="display:none;">
+                        <ol>
+                            <li>Установлена некачественная игла. Попробуйте установить иглу фирм ORGAN либо SHCMETZ и полностью перезаправьте машину</li>
+                            <li>Заусенцы на игольной пластине. Снимите игольную пластину и проверьте игольное отвертие на наличие заусенцев. Если вы их обнаружили, то попробуйте удалить их самостоятельно с помощью мелкой наждачки.</li>
+                            <li>Установлена некачественная или пересохшая нить. Попробуйте поставить нить состава полиэстер соответствующую по толщине используемой вами ткани.</li>
+                            <li>Нарушены регулировки механизмов машины. Обратитесь к мастеру для устранения.</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="diagnostic-problems__item">
+                    <div class="diagnostic-problems__item-title">
+                        <p>Поломка игл</p>
+                        <i class="fas fa-chevron-circle-down descr-visible"></i>
+                        <i class="fas fa-chevron-circle-up descr-hidden"></i>
+                    </div>
+                    <div class="diagnostic-problems__item-description">
+                        <ol>
+                            <li>Игла не соответствует по толщине к используемой ткани. При пошиве плотных тканей (джинсовая) необходимо использовать специальные иглы Jeans, Titanium (эти иглы имеют повышенное содержание хрома в составе и более острую заточку, что снижает нарузку на машину)</li>
+                            <li>Нарушены регулировки механизмов машины. Обратитесь к мастеру для устранения.</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="diagnostic-problems__item">
+                    <div class="diagnostic-problems__item-title">
+                        <p>Петляет нить</p>
+                        <i class="fas fa-chevron-circle-down descr-visible"></i>
+                        <i class="fas fa-chevron-circle-up descr-hidden"></i>
+                    </div>
+                    <div class="diagnostic-problems__item-description">
+                        <ol>
+                            <li>Неправильно заправлена верхняя и/или нижняя нить. Полностью перезаправьте машину</li>
+                            <li>Неправильно установлена регулировка натяжения верхней нити. Попробуйте установить регулятор на отметки от «3 до 6» и посмотри изменится ли результат. Если результат тот же, то возможно в механизм регулятора попали пылинки от ниток. Обратитесь к мастеру для разборки механизма и его чистки</li>
+                            <li>Несоответствие нити и иглы. Возможно была установлена игла достаточно тонкая при использовании толстых нитей (ушко иглы маленькое, а нить толстая). Попробуйте установить иглу на 1 или 2 размера толще. Иногда необходимо использовать специальные иглы с увеличенным ушком (METAL, TOP STITCH).</li>
+                            <li>Нарушены регулировки механизмов машины. Обратитесь к мастеру для устранения.</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="diagnostic-problems__item">
+                    <div class="diagnostic-problems__item-title">
+                        <p>Тугой ход машины</p>
+                        <i class="fas fa-chevron-circle-down descr-visible"></i>
+                        <i class="fas fa-chevron-circle-up descr-hidden"></i>
+                    </div>
+                    <div class="diagnostic-problems__item-description">
+                        <ol>
+                            <li>Закончилась смазка. Обратитесь к мастеру для проведения технического обслуживания</li>
+                            <li>Машина смазана маслом не предназначенным для нее. Если машина смазана другими маслами (подсолненое, оливковое, машинное, оружейное и другие) ее необходимо полностью очистить и промыть. Обратитесь к мастеру для устранения.</li>
+                            <li>В челночное устройство забился мусор. Снимите игольную пластину, очистите все механизмы под игольной пластиной и между рейкой. Разберите челночное устройство, удалите мусор и грязь, смажьте</li>
+                            <li>Намотались нитки на механизмы. Снимите боковую верхнюю крышку машины, проверьте нет ли нитей на колене нитепритягивателя. Если есть, постарайтесь аккуратно удалить их. Если не удается, то обратитесь к мастеру для устранения. Возможно нити также могли намотаться на шкив мотора или др.механизмы</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="diagnostic-problems__item">
+                    <div class="diagnostic-problems__item-title">
+                        <p>Нет захвата нити (не образуется петля)</p>
+                        <i class="fas fa-chevron-circle-down descr-visible"></i>
+                        <i class="fas fa-chevron-circle-up descr-hidden"></i>
+                    </div>
+                    <div class="diagnostic-problems__item-description">
+                        <ol>
+                            <li>Установлена некачественная игла. Попробуйте установить иглу фирм ORGAN либо SHCMETZ и полностью перезаправьте машину</li>
+                            <li>Сбиты регулировки механизмов. Обратитесь к мастеру для устранения.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section diagnostic --// -->
+
+    <!-- //-- Section contacts -->
+    <section class="contacts">
+        <div class="container">
+            <h3 class="contacts-title">Ремонт, наладка, профилактика Вашего швейного оборудования.</h3>
+            <div class="contacts-maininfo">
+                <div class="contacts-maininfo__address">
+                    <p>
+                        <strong>Адрес мастерской:</strong> г. Минск, ул.Алибегова д.24
+                    </p>
+                    <p>
+                        <strong>Время работы:</strong>
+                        <span>ПН-ПТ 10:00 - 19:00 (Без обеда)</span>
+                        <span>СБ 10:00 - 16:00 (Без обеда)</span>
+                        <span>ВС - выходной</span>
+                    </p>
+                </div>
+                <div class="contacts-maininfo__phones">
+                    <a class="href-tel" href="tel:+375(17)242-01-88">
+                        <i class="fas fa-phone-alt"></i>
+                        +375 (17) 242-01-88
+                    </a>
+                    <a class="href-tel" href="tel:+375(29)983-50-70">
+                        <span class="icon velcom"></span>
+                        +375 (29) 983-50-70
+                    </a>
+                    <a class="href-tel" href="tel:+375(29)575-50-50">
+                        <span class="icon mts"></span>
+                        +375 (29) 575-50-50
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section contacts --// -->
+
+
+
+
+
+</body>
+</html>
