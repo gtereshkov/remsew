@@ -203,7 +203,7 @@ app.controller('pricelistCtrl', function ($scope) {
               balloonContentFooter: 'ул.Алибегова д.24'
           }, {
             iconLayout: 'default#image',
-            iconImageHref: '../img/locationIcon.png',
+            iconImageHref: 'img/locationIcon.png',
             iconImageSize: [84, 43],
             iconImageOffset: [-15, -65]
         });
