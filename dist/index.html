@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ремонт швейных машин в Минске</title>    
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/all.min.css">  
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/wi-feedback.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic" rel="stylesheet">
@@ -14,8 +16,11 @@
     <script src="js/angular.min.js"></script>
     <script src="js/angular-locale_ru-by.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/pricelist.js"></script>
+    <script src="js/pricelist.js"></script>    
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/wi-feedback.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&onload=jQuery.fn.remsewMapInit" async></script>
 </head>
 <body>
     <!-- //-- Section header -->
@@ -40,7 +45,7 @@
                         </a>
                     </p>
                 </div>
-                <p><button class="header-maininfo-button button button-blue">Заказать звонок</button></p>
+                <p><button class="header-maininfo-button button button-blue wi-fb1-link">Заказать звонок</button></p>
             </div>
 
             <div class="header-description">
@@ -67,69 +72,74 @@
     </section>
     <!-- Section examples --// -->
 
-        <!-- //-- Section prices -->
-        <section class="prices">
-                <div class="container">
-                    <h2 class="prices-title">Цены на ремонт и обслуживание оборудования</h2>
-                    <div class="prices-pricelist" ng-controller="pricelistCtrl">
-        
-                        <div data-title="Швейное оборудование">
-                            <p class="text-center"><strong>Актуальные цены на выполнение работ по швейному оборудованию</strong></p>
-                            <table class="simple-little-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Вид работы</th>
-                                            <th>Стоимость работы</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr ng-repeat="position in priceList.shveinoye">
-                                            <td>{{position.type}}</td>
-                                            <td>{{position.price | currency}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                        </div>   
-        
-                        <div data-title="Вязальное оборудование">
-                            <p class="text-center"><strong>Актуальные цены на выполнение работ по вязальному оборудованию</strong></p>
-                            <table class="simple-little-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Вид работы</th>
-                                            <th>Стоимость работы</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr ng-repeat="position in priceList.viazalnoye">
-                                                <td>{{position.type}}</td>
-                                                <td>{{position.price | currency}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                        </div>
-        
-                        <div data-title="Парогладильное оборудование">
-                            <p class="text-center"><strong>Актуальные цены на выполнение работ по парогладильному оборудованию</strong></p>
-                            <table class="simple-little-table">
-                                <thead>
-                                    <tr>
-                                        <th>Вид работы</th>
-                                        <th>Стоимость работы</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr ng-repeat="position in priceList.parogladilnoye">
-                                            <td>{{position.type}}</td>
-                                            <td>{{position.price | currency}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>     
+    <!-- //-- Section prices -->
+    <section class="prices">
+        <div class="container">
+            <h2 class="prices-title">Цены на ремонт и обслуживание оборудования</h2>
+            <div class="prices-pricelist" ng-controller="pricelistCtrl">
+                <div data-title="Швейное оборудование">
+                    <p class="text-center"><strong>Актуальные цены на выполнение работ по швейному оборудованию</strong></p>
+                    <table class="simple-little-table">
+                            <thead>
+                                <tr>
+                                    <th>Вид работы</th>
+                                    <th>Стоимость работы</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="position in priceList.shveinoye">
+                                    <td>{{position.type}}</td>
+                                    <td>{{position.price | currency}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div> 
+                <div data-title="Вязальное оборудование">
+                    <p class="text-center"><strong>Актуальные цены на выполнение работ по вязальному оборудованию</strong></p>
+                    <table class="simple-little-table">
+                            <thead>
+                                <tr>
+                                    <th>Вид работы</th>
+                                    <th>Стоимость работы</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="position in priceList.viazalnoye">
+                                        <td>{{position.type}}</td>
+                                        <td>{{position.price | currency}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+                <div data-title="Парогладильное оборудование">
+                    <p class="text-center"><strong>Актуальные цены на выполнение работ по парогладильному оборудованию</strong></p>
+                    <table class="simple-little-table">
+                        <thead>
+                            <tr>
+                                <th>Вид работы</th>
+                                <th>Стоимость работы</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="position in priceList.parogladilnoye">
+                                    <td>{{position.type}}</td>
+                                    <td>{{position.price | currency}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>     
+            </div>
+            <div class="phoneform" id="remsew-fb3">
+                    <h4 class="phoneform-heading">Не смогли определить какой вид работ нужен Вам?</h4>
+                    <div class="phoneform-main">
+                        <p class="phoneform-main__text">Мы проконсультируем!</p>
+                        <input type="tel" placeholder="Впишите номер" class="phoneform-main__input" required>
+                        <button class="phoneform-main__button button button-blue wi-fb3-link">Заказать звонок</button>
                     </div>
                 </div>
-            </section>
-            <!-- Section prices --// -->
+        </div>
+    </section>
+    <!-- Section prices --// -->
 
     <!-- //-- Section advantages -->
     <section class="advantages wavebordered">
@@ -182,7 +192,7 @@
         <div class="container">
             <h2 class="diagnostic-heading">Наиболее частые проблемы</h2>
             <div class="diagnostic-video">
-                <iframe src="http://www.youtube.com/embed/L_8b4hDrsLo" frameborder="0" ></iframe>
+                <iframe src="https://www.youtube.com/embed/L_8b4hDrsLo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <h3 class="diagnostic-listheading">Проблемы и причины их возникновения</h3>
             <div class="diagnostic-problems">                
@@ -258,48 +268,64 @@
                     </div>
                 </div>
             </div>
+            <div class="phoneform" id="remsew-fb2">
+                <h4 class="phoneform-heading">Не смогли определить неисправность Вашей техники?</h4>
+                <div class="phoneform-main">
+                    <p class="phoneform-main__text">Мы обязательно поможем!</p>
+                    <input type="tel" placeholder="Впишите номер" class="phoneform-main__input" required>
+                    <button class="phoneform-main__button button button-blue wi-fb2-link">Заказать звонок</button>
+                </div>
+            </div>
         </div>
     </section>
     <!-- Section diagnostic --// -->
 
     <!-- //-- Section contacts -->
-    <section class="contacts">
-        <div class="container">
-            <h3 class="contacts-title">Ремонт, наладка, профилактика Вашего швейного оборудования.</h3>
-            <div class="contacts-maininfo">
-                <div class="contacts-maininfo__address">
-                    <p>
-                        <strong>Адрес мастерской:</strong> г. Минск, ул.Алибегова д.24
-                    </p>
-                    <p>
-                        <strong>Время работы:</strong>
-                        <span>ПН-ПТ 10:00 - 19:00 (Без обеда)</span>
-                        <span>СБ 10:00 - 16:00 (Без обеда)</span>
-                        <span>ВС - выходной</span>
-                    </p>
-                </div>
-                <div class="contacts-maininfo__phones">
-                    <a class="href-tel" href="tel:+375(17)242-01-88">
-                        <i class="fas fa-phone-alt"></i>
-                        +375 (17) 242-01-88
-                    </a>
-                    <a class="href-tel" href="tel:+375(29)983-50-70">
-                        <span class="icon velcom"></span>
-                        +375 (29) 983-50-70
-                    </a>
-                    <a class="href-tel" href="tel:+375(29)575-50-50">
-                        <span class="icon mts"></span>
-                        +375 (29) 575-50-50
-                    </a>
+    <section class="contacts wavebordered">
+            <h3 class="contacts-title__smaller">Ремонт, наладка, профилактика <span>Вашего швейного оборудования.</span></h3>
+            <h2 class="contacts-title__larger"><span>Наши</span> контакты</h2>
+            <div class="contacts-map" id="remsew-map">
+                <div class="contacts-maininfo">
+                    <img src="img/logo.png" alt="Logo" class="contacts-maininfo__logo">
+                    <div class="contacts-maininfo__address">
+                        <p> г. Минск, ул.Алибегова д.24 </p>
+                        <div class="contacts-maininfo__worktime">
+                            <p>ПН-ПТ 10:00 - 19:00 (Без обеда)</p>
+                            <p>СБ 10:00 - 16:00 (Без обеда)</p>
+                            <p>ВС - выходной</p>
+                        </div>
+                    </div>
+                    <div class="contacts-maininfo__phones">
+                        <a class="href-tel" href="tel:+375(17)242-01-88">
+                            <i class="fas fa-phone-alt"></i>
+                            +375 (17) 242-01-88
+                        </a>
+                        <a class="href-tel" href="tel:+375(29)983-50-70">
+                            <span class="icon velcom"></span>
+                            +375 (29) 983-50-70
+                        </a>
+                        <a class="href-tel" href="tel:+375(29)575-50-50">
+                            <span class="icon mts"></span>
+                            +375 (29) 575-50-50
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
     </section>
     <!-- Section contacts --// -->
 
-
-
-
-
+    <footer>
+        <div class="container">
+            <p>© remsew 2019</p>
+        </div>
+    </footer>
+    <div class="phoneform mfp-hide" id="remsew-fb1">
+        <h4 class="phoneform-heading">Оставьте свой номер телефона и мы обязательно перезвоним с 10:00 до 19:00</h4>
+        <div class="phoneform-main">
+            <p class="phoneform-main__text">Мы обязательно поможем!</p>
+            <input type="tel" placeholder="Впишите номер" class="phoneform-main__input" required>
+            <button class="phoneform-main__button button button-blue">Заказать звонок</button>
+        </div>
+    </div>
 </body>
 </html>

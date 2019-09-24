@@ -6,6 +6,19 @@
     box-sizing: border-box;
 }
 
+body:before {
+    content: "";
+    position: fixed;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    z-index: 100;
+    -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+    -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+    box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+}
+
 .container {
     width: 80%;
     margin: 0 auto;
@@ -57,6 +70,74 @@ section.wavebordered:after {
         left: 0;
         background: url("../img/wave.svg") top left repeat-x;
 }
+
+.phoneform {
+    padding: 10px 20px;
+    margin: 50px auto;
+    max-width: 750px;
+    background: linear-gradient(to bottom,#e2e2e2,#f9f9f9 100%);
+    
+    position: relative;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    text-shadow: 0 1px 0 #fff;
+
+    &:before,
+    &:after {
+        z-index: -1;
+        position: absolute;
+        content: "";
+        bottom: 15px;
+        left: 10px;
+        width: 50%;
+        top: 80%;
+        max-width:300px;
+        background: rgba(0, 0, 0, 0.7);
+        -webkit-box-shadow: 0 15px 10px rgba(0,0,0, 0.7);
+        -moz-box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+        box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+        -webkit-transform: rotate(-3deg);
+        -moz-transform: rotate(-3deg);
+        -o-transform: rotate(-3deg);
+        -ms-transform: rotate(-3deg);
+        transform: rotate(-3deg);
+    }
+
+    &:after {
+        -webkit-transform: rotate(3deg);
+        -moz-transform: rotate(3deg);
+        -o-transform: rotate(3deg);
+        -ms-transform: rotate(3deg);
+        transform: rotate(3deg);
+        right: 10px;
+        left: auto;
+       }
+
+    &-heading {
+        text-align: center;
+        font-family: $Roboto-Condensed;
+        font-weight: 400;
+        font-size: 1.25em;
+        padding: 20px 0;
+    }
+
+    &-main {
+        display: flex;
+        justify-content: space-between;
+
+        &__text {
+            font-family: $Roboto-Condensed;
+            font-weight: 400;
+            font-size: 1.75em;
+            line-height: 1.5;
+        }
+
+        &__input {
+            padding-left: 10px;
+        }
+    }
+}
+
 // common styles --//
 
 // --Section header
@@ -273,6 +354,7 @@ section.wavebordered:after {
 // --Section diagnostic
 .diagnostic {
     padding-bottom: 40px;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.9));
 
     &-heading {
         text-align: center;
@@ -401,3 +483,231 @@ section.wavebordered:after {
     }
 }
 // Section prices --//
+
+// --Section contacts
+.contacts {
+    padding-bottom: 70px;  
+
+    &-title {
+        &__smaller {
+            text-align: center;
+            font-family: $PT-Sans;
+            font-size: 2em;
+            font-weight: 700;
+            padding: 35px 0;
+            color: #000;
+
+            & span {
+                color: $color-blue-dark;
+            }
+        }
+        &__larger {
+            text-align: center;
+            font-family: $PT-Sans;
+            font-size: 3.5em;
+            font-weight: 700;
+            padding: 0 0 50px;
+            color: #000;
+
+            & span {
+                color: $color-blue-dark;
+            }
+        }
+    }
+
+    &-map {
+        min-height: 500px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, .2);
+        position: relative;
+
+        & .contacts-maininfo {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            z-index: 999;
+            background-color: rgba(255,255,255,.9);
+            border-radius: 5px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, .4);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+
+            &__logo {
+                width: 224px;
+                height: 87px;
+                margin-bottom: 10px;
+            }
+
+            &__address {
+                margin-bottom: 10px;
+                font-family: $Roboto-Condensed;
+                font-size: 1.25em;
+            }
+
+            &__phones {
+                display: flex;
+                flex-direction: column;
+
+                & .href-tel {
+                    text-decoration: none;
+                    font-family: $Roboto-Condensed;
+                    font-size: 1.1em;
+                    font-weight: bold;
+                    color: $color-orange;
+                    transition: color .1s linear;
+
+                    &:hover {
+                        color: red;
+                    }
+
+                    &+.href-tel {
+                        margin-top: 10px;
+                    }
+
+                    & .icon {
+                        height: 20px;
+                        width: 20px;
+                        display: inline-block;
+                        background-size: cover;
+                        border-radius: 1px;
+                    }
+
+                    & .velcom {
+                        background-image: url('../img/velcom.png');
+                    }
+
+                    & .mts {
+                        background-image: url('../img/mts.png');
+                    }
+                }
+            }
+            
+        }
+    }
+
+    &:before {
+        top: -7px;
+        background-position: top;
+        z-index: 20;
+    }
+    &:after {        
+        bottom: -7px;
+        background-position: bottom;
+        z-index: 21;
+    }
+}
+// Section contacts --//
+
+footer {
+    min-height: 100px;
+    background: linear-gradient(to bottom,$color-gray-transparent,$color-gray 100%);
+
+    & .container {
+        text-align: center;
+        padding: 45px;
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 1376px) {
+    .header-maininfo {
+        &__text {
+            display: block;
+
+            &-intro {
+                display: none;
+            }
+
+            &-phone {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                & .href-tel + .href-tel {
+                    margin-top: 5px;
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1170px) {
+    .phoneform-main__text {
+        font-size: 1.5em;
+        line-height: 2;
+    }
+    .contacts-title__smaller {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    p.header-description__primary {
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-width: 890px) {
+    .container {
+        width: 95%;
+    }
+    .header { position: static;}
+    .header-maininfo {
+        flex-direction: column;
+        align-items: center;
+
+        &>* {
+            margin-bottom: 20px;
+        }
+    }
+
+    .header-description {
+        position: static;
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .phoneform-main {
+        flex-direction: column;
+        align-items: center;
+
+        &>* {
+            margin-bottom: 15px;
+        }
+    }
+
+    .diagnostic-video iframe {
+        width: 300px;
+        height: 200px;
+    }
+
+    .advantages-list {
+        flex-direction: column;
+        align-items: center;
+
+        &>* {
+            margin-bottom: 35px;
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 525px) {
+    .examples-list {
+        justify-content: space-around;
+    }
+    .advantages-list__item-icon {
+        font-size: 1.5em;
+    }
+    .advantages-list__item-text .heading {
+        font-size: 1em;
+        font-weight: 700;
+    }
+}
+

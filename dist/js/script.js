@@ -143,9 +143,6 @@ app.controller('pricelistCtrl', function ($scope) {
 });
 
 
-
-
-
 (function ($) {
     $(document).ready(function () {
 
@@ -159,6 +156,60 @@ app.controller('pricelistCtrl', function ($scope) {
             duration: 500,
             eventTrigger: 'click'
         });
+
+        /* Формы обратной связи */
+
+        $('#remsew-fb1').wiFeedBack({
+            fbScript: 'blocks/wi-feedback.php',
+            fbLink: '.wi-fb1-link',
+            fbColor: '#337ab7'
+        });
+
+        // $('#remsew-fb2').wiFeedBack({
+        //     fbScript: 'blocks/wi-feedback.php',
+        //     fbLink: false,
+        //     fbColor: '#337ab7'
+        // });
+
+        // $('#remsew-fb3').wiFeedBack({
+        //     fbScript: 'blocks/wi-feedback.php',
+        //     fbLink: false,
+        //     fbColor: '#337ab7'
+        // });
+
+
+        /* Yandex maps */
+
+        $.fn.remsewMapInit = function () {
+
+          var remsewMapOptions = {
+              center: [53.872858, 27.478045],
+              zoom: 16,
+              controls: ['zoomControl', 'fullscreenControl']
+          }
+
+          if (window.innerWidth < 768) {
+            remsewMapOptions.behaviors = ['multiTouch'];
+          } else {
+            remsewMapOptions.behaviors = ['drag'];
+          }
+
+          var remsewMap = new ymaps.Map('remsew-map', remsewMapOptions);
+
+          var remsewPlacemark = new ymaps.Placemark([53.872858, 27.478045], {
+              hintContent: 'Ремонт швейной техники',
+              balloonContentHeader: 'Ремонт швейной техники',
+              balloonContentBody: 'Магазин-мастерская швейной техники и аксессуаров',
+              balloonContentFooter: 'ул.Алибегова д.24'
+          }, {
+            iconLayout: 'default#image',
+            iconImageHref: '../img/locationIcon.png',
+            iconImageSize: [84, 43],
+            iconImageOffset: [-15, -65]
+        });
+
+          remsewMap.geoObjects.add(remsewPlacemark);
+      }
 
     });
 })(jQuery);
