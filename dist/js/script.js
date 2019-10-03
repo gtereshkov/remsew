@@ -162,20 +162,23 @@ app.controller('pricelistCtrl', function ($scope) {
         $('#remsew-fb1').wiFeedBack({
             fbScript: 'blocks/wi-feedback.php',
             fbLink: '.wi-fb1-link',
-            fbColor: '#337ab7'
+            fbColor: '#337ab7',
+            fbTheme: false
         });
 
-        // $('#remsew-fb2').wiFeedBack({
-        //     fbScript: 'blocks/wi-feedback.php',
-        //     fbLink: false,
-        //     fbColor: '#337ab7'
-        // });
+        $('#remsew-fb2').wiFeedBack({
+            fbScript: 'blocks/wi-feedback.php',
+            fbLink: false,
+            fbColor: '#337ab7',
+            fbTheme: false
+        });
 
-        // $('#remsew-fb3').wiFeedBack({
-        //     fbScript: 'blocks/wi-feedback.php',
-        //     fbLink: false,
-        //     fbColor: '#337ab7'
-        // });
+        $('#remsew-fb3').wiFeedBack({
+            fbScript: 'blocks/wi-feedback.php',
+            fbLink: false,
+            fbColor: '#337ab7',
+            fbTheme: false
+        });
 
 
         /* Yandex maps */
@@ -213,3 +216,5 @@ app.controller('pricelistCtrl', function ($scope) {
 
     });
 })(jQuery);
+
+new WOW().init();
